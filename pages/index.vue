@@ -3,6 +3,10 @@
     <v-card-title>
       Öppenhetsdatabasen
     </v-card-title>
+    <v-card-text>
+      Topp-graf här:
+      {{  summary }}
+    </v-card-text>
   </v-card>
 </template>
 
@@ -11,7 +15,8 @@ export default {
   data: () => ({
   }),
   setup: async function () {
-    return {  }
+    const summary = await $fetch("/api/summary")
+    return { summary }
   },
 }
 </script>

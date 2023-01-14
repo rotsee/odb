@@ -11,8 +11,10 @@
     "nuxt": "3.0.0"
   },
   "dependencies": {
+    "chart.js": "^4.1.2",
     "google-spreadsheet": "^3.3.0",
     "sass": "^1.57.1",
-    "vuetify": "^3.1.0"
+    "vue-chartjs": "^5.2.0",
+    "vuetify": "^3.1.1"
   }
 }

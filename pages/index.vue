@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/no-multiple-template-root -->
 <template>
-  <v-row justify-center>
+  <v-row justify-center center class="my-4">
     <v-col>
       <hero-chart />
     </v-col>

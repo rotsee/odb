@@ -33,7 +33,7 @@
 
 <script>
 export default {
-  setup: async function ({ $vuetify }) {
+  setup: async function () {
     const data = await $fetch("/api/table")
     return { data }
   },

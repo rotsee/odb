@@ -8,10 +8,10 @@
         <NuxtPage />
       </v-container>
     </v-main>
-    <v-bottom-navigation>
-      <v-btn variant="text">
-        Om Öppenhetsdatabasen
-      </v-btn>
-    </v-bottom-navigation>
+    <v-footer>
+      <small>
+        Öppenhetsdatabasen drivs av <a href="https://www.sjf.se/yrkesfragor/yttrandefrihet/yttrandefrihetsgruppen">Journalistförbundets yttrandefrihetsgrupp.</a>
+      </small>
+    </v-footer>
   </v-app>
 </template>

@@ -19,6 +19,5 @@ export default defineEventHandler(async () => {
       o[y][x.sekretess]++
       return o
     }, {})
-  console.log(data)
   return data
 })

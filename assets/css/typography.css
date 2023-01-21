@@ -1,0 +1,7 @@
+.Typography__h1, h1, h2, h3 {
+  font-family: Futura Bold, Helvetica Neue, Helvetica, sans-serif;
+}
+.Typography__h1, h1 {
+  font-size: 26px;
+  color: #e31d3c;
+}

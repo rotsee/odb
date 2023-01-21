@@ -4,7 +4,10 @@
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  css: ["vuetify/styles"],
+  css: [
+    "@/assets/css/typography.css",
+    "vuetify/styles",
+  ],
   build: {
     transpile: ["vuetify", "chart.js"],
   },

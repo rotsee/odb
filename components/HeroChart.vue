@@ -1,14 +1,17 @@
 <template>
-  <v-row>
-    <v-col>
-      <hero-chart />
-    </v-col>
-  </v-row>
-  <v-row>
-    <v-col>
-      <sfs-table />
-    </v-col>
-  </v-row>
+  <v-card max-width="700">
+    <v-card-title>
+      Så har de senaste årens lagändringar förändrat öppenheten i samhället
+    </v-card-title>
+    <v-card-text>
+      <Bar
+        id="hero-chart"
+        :options="chartOptions"
+        :data="chartData"
+      />
+      <p>Lagändringarna är ordnade efter årtalet de träder ikraft</p>
+    </v-card-text>
+  </v-card>
 </template>
 
 <script>

@@ -17,7 +17,7 @@
         <template #item.sfs="{ item }">
           <a
             target="_new"
-            href="item.value.sfs_url"
+            :href="item.value.sfs_url"
           >
             {{ item.value.sfs }}
           </a>

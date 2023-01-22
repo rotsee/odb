@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar app class="py-2 px-4">
+    <v-app-bar app absolute class="py-2 px-4">
       <a href="https://www.sjf.se">
         <v-img
           width="222"

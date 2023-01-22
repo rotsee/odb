@@ -25,8 +25,9 @@ export default defineNuxtConfig({
     googleApiKey: "",
     googleSheetsId: "",
   },
-  /*
   modules: [
+    "@nuxt/content",
+    /*
     // @ts-ignore
     // vite-plugin behöver startas så här för att funka med
     async (options, nuxt) => {
@@ -34,6 +35,11 @@ export default defineNuxtConfig({
             vuetify()
         ))
     }
-  ]
   */
+  ],
+  /* MODULCONFIG */
+  content: {
+    // https://content.nuxtjs.org/api/configuration
+    defaultLocale: "sv-SE",
+  },
 })

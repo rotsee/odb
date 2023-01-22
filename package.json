@@ -1,11 +1,16 @@
 {
   "private": true,
+  "engines": {
+    "node": "v19.0.1",
+    "npm": "8.19.2"
+  },
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
+    "start": "nuxt start --modern=client",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix ."
   },
   "devDependencies": {

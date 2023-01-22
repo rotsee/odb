@@ -22,8 +22,19 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     // Allt sdom ska plockas med dot-env behöver deklareras här
-    googleApiKey: "",
-    googleSheetsId: "",
+    // googleApiKey: "",
+    // googleSheetsId: "",
+  },
+  app: {
+    head: {
+      htmlAttrs: {
+        lang: "sv",
+      },
+      title: "Öppenhetsdatabasen",
+      meta: [
+        { name: "description", content: "Jounalistförbundets öppenhetsdatabas." },
+      ],
+    },
   },
   modules: [
     "@nuxt/content",

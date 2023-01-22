@@ -4,4 +4,7 @@
 .Typography__h1, h1 {
   font-size: 26px;
   color: #e31d3c;
+  margin-top: 26px;
+  margin-bottom: 18px;
+  line-height: 39px;
 }

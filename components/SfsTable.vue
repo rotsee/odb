@@ -4,6 +4,38 @@
       Lagändringar de senaste åren
     </v-card-title>
     <v-card-text>
+      <v-expansion-panels>
+        <v-expansion-panel>
+          <v-expansion-panel-title expand-icon="mdi-menu-down">
+            <v-icon class="mr-2" icon="mdi-filter" color="grey" />
+            Filter
+          </v-expansion-panel-title>
+          <v-expansion-panel-text>
+            <v-form>
+              <v-container>
+                <v-row>
+                  <v-col>
+                    <v-select
+                      v-model="filter.sekretess"
+                      multiple
+                      chips
+                      label="Sekretess"
+                      :single-line="false"
+                      :items="['ökad', 'minskad', {title: 'ingen förändring', value: ''}]"
+                    />
+                  </v-col>
+                  <v-col>
+                    <v-checkbox
+                      v-model="filter.eu"
+                      label="Endast EU-relaterade ändringar"
+                    />
+                  </v-col>
+                </v-row>
+              </v-container>
+            </v-form>
+          </v-expansion-panel-text>
+        </v-expansion-panel>
+      </v-expansion-panels>
       <v-data-table
         v-model:page="tablePage"
         :headers="headers"
@@ -35,7 +67,7 @@
             </template>
           </v-tooltip>
           <span class="mx-1">
-            §{{ item.value.paragraph }}
+            § {{ item.value.paragraph }}
           </span>
           <a
             class="table_link"
@@ -74,11 +106,15 @@
 <script>
 export default {
   setup: async function () {
-    const tableData = await $fetch("/api/table")
-    return { tableData }
+    const tableDataRaw = await $fetch("/api/table")
+    return { tableDataRaw }
   },
   data () {
     return {
+      filter: {
+        sekretess: ["ökad", "minskad", ""],
+        eu: false,
+      },
       tablePage: 1,
       options: {
         pageCount: 1,
@@ -144,11 +180,26 @@ export default {
           key: "sekretess",
         },
         {
+          title: "Startdatum",
+          key: "sdate",
+        },
+        {
           title: "Övrigt",
           key: "kategori",
         },
       ],
     }
+  },
+  computed: {
+    tableData: function () {
+      if (!this.tableDataRaw) {
+        return []
+      }
+      let data = this.tableDataRaw
+        .filter(row => this.filter.sekretess.includes(row.sekretess))
+        .filter(row => row.eu || !this.filter.eu)
+      return data
+    },
   },
   methods: {
     itemRowBackground: item => {

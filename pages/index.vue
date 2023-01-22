@@ -8,13 +8,15 @@
   <v-row>
     <v-col>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras. Laoreet id donec ultrices tincidunt arcu non sodales neque. In nisl nisi scelerisque eu ultrices vitae auctor. Semper auctor neque vitae tempus quam pellentesque nec. Eros donec ac odio tempor orci dapibus. Proin fermentum leo vel orci. Facilisis sed odio morbi quis commodo. Urna et pharetra pharetra massa massa ultricies mi quis. Ac turpis egestas sed tempus urna. Libero id faucibus nisl tincidunt eget nullam non. Consequat semper viverra nam libero justo laoreet sit amet cursus. Ut enim blandit volutpat maecenas volutpat blandit aliquam etiam erat. 
+        De flesta av de hundratalet lagändringarna i Offentlighets- och sekretesslagen (OSL) under den här mandatperioden är var för sig – med några undantag – oftast ganska små. Få av dem förändrar ensamma insynen i svenska myndigheters arbete så mycket att det förtjänar några rubriker. Men om var och en av dem inskränker öppenheten bara något, så riskerar de att sammantaget driva samhället mot ökad slutenhet.
       </p>
     </v-col>
     <v-col>
       <p>
-        Natoque penatibus et magnis dis parturient montes. Erat nam at lectus urna. Egestas maecenas pharetra convallis posuere morbi leo. Cras sed felis eget velit aliquet sagittis id. Sed viverra ipsum nunc aliquet bibendum enim. Donec pretium vulputate sapien nec sagittis aliquam. Amet dictum sit amet justo donec enim diam. Nibh praesent tristique magna sit amet. Urna cursus eget nunc scelerisque viverra mauris. Leo a diam sollicitudin tempor id eu. Euismod quis viverra nibh cras pulvinar mattis nunc sed blandit. At auctor urna nunc id cursus metus. Eget magna fermentum iaculis eu non diam phasellus vestibulum.
+        För att få en bild av hela lagändringspusslet, har vi byggt en databas över lagändringar i OSL, med start i början av förra manadatperioden. 
+        Databasen innehåller omkring 200 lagändringar i OSL (alla substantiella ändringar av lagtexter, men inte vissa rubrikändringar, korrektur och liknande).
       </p>
+      <nuxt-link to="/metod">Läs mer »</nuxt-link>
     </v-col>
   </v-row>
   <v-row>

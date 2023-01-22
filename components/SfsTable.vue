@@ -11,6 +11,7 @@
         :items-per-page="rowsPerPage"
         :item-class="itemRowBackground"
         :class="itemRowBackground"
+        item-title="sfs"
         hide-default-footer
         @update:options="options = $event"
       >

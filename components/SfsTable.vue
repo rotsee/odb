@@ -7,11 +7,10 @@
       <v-data-table
         v-model:page="tablePage"
         :headers="headers"
-        :items="data"
+        :items="tableData"
         :items-per-page="rowsPerPage"
         :item-class="itemRowBackground"
         :class="itemRowBackground"
-        item-title="sfs"
         hide-default-footer
         @update:options="options = $event"
       >
@@ -27,21 +26,21 @@
           {{ item.value.sekretess }}
         </template>
         <template #item.chapter-paragraph="{ item }">
-          <v-tooltip :text="chapters[item.value['chapter-paragraph'][0]]">
+          <v-tooltip v-if="item.value.chapter" :text="chapters[item.value.chapter]">
             <template #activator="{ props }">
               <span v-bind="props">
-                {{ item.value["chapter-paragraph"][0] }}
+                {{ item.value.chapter }}
                 <v-icon icon="mdi-information" color="grey" size="small" />
               </span>
             </template>
           </v-tooltip>
           <span class="mx-1">
-            §{{ item.value["chapter-paragraph"][1] }}
+            §{{ item.value.paragraph }}
           </span>
           <a
             class="table_link"
             target="_new"
-            :href="`https://lagen.nu/2009:400#K${item.value['chapter-paragraph'][0]}P${item.value['chapter-paragraph'][1]}S1`"
+            :href="`https://lagen.nu/2009:400#K${item.value.chapter}P${item.value.paragraph}S1`"
           >
             <v-icon
               icon="mdi-open-in-new"
@@ -75,8 +74,8 @@
 <script>
 export default {
   setup: async function () {
-    const data = await $fetch("/api/table")
-    return { data }
+    const tableData = await $fetch("/api/table")
+    return { tableData }
   },
   data () {
     return {

@@ -9,16 +9,56 @@
         :headers="headers"
         :items="data"
         :items-per-page="rowsPerPage"
+        :item-class="itemRowBackground"
+        :class="itemRowBackground"
         hide-default-footer
         @update:options="options = $event"
       >
-        <template #item.chapter="{ item }">
-          <span class="mr-2">{{ item.value.chapter }}</span>
-          <v-tooltip :text="chapters[item.value.chapter]">
-            <template  #activator="{ props }">
-              <v-icon icon="mdi-information" color="grey" size="small" v-bind="props"/>
+        <template #item.sfs="{ item }">
+          <a
+            target="_new"
+            href="item.value.sfs_url"
+          >
+            {{ item.value.sfs }}
+          </a>
+        </template>
+        <template #item.sekretess="{ item }">
+          {{ item.value.sekretess }}
+        </template>
+        <template #item.chapter-paragraph="{ item }">
+          <v-tooltip :text="chapters[item.value['chapter-paragraph'][0]]">
+            <template #activator="{ props }">
+              <span v-bind="props">
+                {{ item.value["chapter-paragraph"][0] }}
+                <v-icon icon="mdi-information" color="grey" size="small" />
+              </span>
             </template>
           </v-tooltip>
+          <span class="mx-1">
+            §{{ item.value["chapter-paragraph"][1] }}
+          </span>
+          <a
+            class="table_link"
+            target="_new"
+            :href="`https://lagen.nu/2009:400#K${item.value['chapter-paragraph'][0]}P${item.value['chapter-paragraph'][1]}S1`"
+          >
+            <v-icon
+              icon="mdi-open-in-new"
+              color="grey"
+              size="small"
+            />
+          </a>
+        </template>
+        <template #item.kategori="{ item }">
+          <span v-if="item.value.eu">
+            EU-lagstiftning &middot;
+          </span>
+          <span v-if="item.value.validity">
+            Sekretess i {{ item.value.validity }} år &middot;
+          </span>
+          <span>
+            {{ item.value.pages }} {{ item.value.pages === 1 ? "sida" : "sidor" }} ändringsförfattning
+          </span>
         </template>
         <template #bottom>
           <v-pagination
@@ -92,19 +132,44 @@ export default {
       },
       headers: [
         {
-          title: 'SFS',
-          key: 'sfs',
+          title: "SFS",
+          key: "sfs",
         },
         {
-          title: 'Kapitel',
-          key: 'chapter',
+          title: "Kapitel och paragraf",
+          key: "chapter-paragraph",
+        },
+        {
+          title: "Ökad/minskad sekretess",
+          key: "sekretess",
+        },
+        {
+          title: "Övrigt",
+          key: "kategori",
         },
       ],
     }
   },
   methods: {
+    itemRowBackground: item => {
+      if (item.sekretess === "ökad") {
+        return "sekretess_ökad"
+      }
+      if (item.sekretess === "minskad") {
+        return "sekretess_minskad"
+      }
+    },
   },
 }
 </script>
 <style>
+.table_link {
+  text-decoration: none;
+}
+.sekretess_ökad {
+  background-color: rgba(255, 99, 132, 0.8);
+}
+.sekretess_minskad {
+  background-color: rgba(75, 192, 192, 0.8);
+}
 </style>

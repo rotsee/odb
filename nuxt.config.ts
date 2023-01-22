@@ -27,6 +27,7 @@ export default defineNuxtConfig({
   },
   modules: [
     "@nuxt/content",
+    "@nuxt/image-edge",
     /*
     // @ts-ignore
     // vite-plugin behöver startas så här för att funka med

@@ -14,6 +14,7 @@
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix ."
   },
   "devDependencies": {
+    "@nuxt/image-edge": "^1.0.0-27840416.dc1ed65",
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
     "@volar-plugins/vetur": "^0.1.0",
     "eslint": "^8.32.0",
@@ -22,10 +23,10 @@
     "prettier": "2.8.3"
   },
   "dependencies": {
-    "nuxt": "3.0.0",
-    "@nuxt/content": "^2.3.0",
     "@mdi/font": "^7.1.96",
+    "@nuxt/content": "^2.3.0",
     "chart.js": "^4.2.0",
+    "nuxt": "3.0.0",
     "sass": "^1.57.1",
     "vue-chartjs": "^5.2.0",
     "vuetify": "^3.1.2"

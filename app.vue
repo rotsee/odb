@@ -2,11 +2,11 @@
   <v-app>
     <v-app-bar app absolute class="py-2 px-4">
       <a href="https://www.sjf.se">
-        <v-img
+        <nuxt-img
           width="222"
           max-height="60"
-          src="https://www.sjf.se//images/site-logo.svg"
-          alt="Logotyp Journalistförbundet"
+          src="/img/sjf-logo.svg"
+          alt="Journalistförbundet"
         />
       </a>
       <v-spacer />

@@ -31,6 +31,18 @@
                     />
                   </v-col>
                 </v-row>
+                <v-row>
+                  <v-col>
+                    <v-range-slider
+                      v-model="filter.sekretess_range"
+                      label="Antal år som sekretessen gäller"
+                      thumb-label="always"
+                      step="10"
+                      max="70"
+                      strict
+                    />
+                  </v-col>
+                </v-row>
               </v-container>
             </v-form>
           </v-expansion-panel-text>
@@ -104,17 +116,12 @@
 </template>
 <script>
 export default {
-  mounted: async function () {
-    console.log("SETUP")
-    const tableDataRaw = await $fetch("/api/table")
-    console.log("tableDataRaw", tableDataRaw.length)
-    this.tableDataRaw = tableDataRaw
-  },
   data () {
     return {
       tableDataRaw: [],
       filter: {
         sekretess: ["ökad", "minskad", ""],
+        sekretess_range: [0, 70],
         eu: false,
       },
       tablePage: 1,
@@ -194,14 +201,20 @@ export default {
   },
   computed: {
     tableData: function () {
-      if (!this.tableDataRaw) {
+      if (!this.tableDataRaw || !this.tableDataRaw.length) {
         return []
       }
-      let data = this.tableDataRaw
+      return this.tableDataRaw
         .filter(row => this.filter.sekretess.includes(row.sekretess))
         .filter(row => row.eu || !this.filter.eu)
-      return data
+        .filter(row => !row.validity || (row.validity >= this.filter.sekretess_range[0] && row.validity <= this.filter.sekretess_range[1]))
     },
+  },
+  mounted: async function () {
+    console.log("SETUP")
+    const tableDataRaw = await $fetch("/api/table")
+    console.log("tableDataRaw", tableDataRaw.length)
+    this.tableDataRaw = tableDataRaw
   },
   methods: {
     itemRowBackground: item => {

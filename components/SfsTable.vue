@@ -207,7 +207,7 @@ export default {
       return this.tableDataRaw
         .filter(row => this.filter.sekretess.includes(row.sekretess))
         .filter(row => row.eu || !this.filter.eu)
-        .filter(row => !row.validity || (row.validity >= this.filter.sekretess_range[0] && row.validity <= this.filter.sekretess_range[1]))
+        .filter(row => (!row.validity && !this.filter.sekretess_range[0]) || (row.validity >= this.filter.sekretess_range[0] && row.validity <= this.filter.sekretess_range[1]))
     },
   },
   mounted: async function () {

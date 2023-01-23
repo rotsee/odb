@@ -102,15 +102,17 @@
     </v-card-text>
   </v-card>
 </template>
-
 <script>
 export default {
-  setup: async function () {
+  mounted: async function () {
+    console.log("SETUP")
     const tableDataRaw = await $fetch("/api/table")
-    return { tableDataRaw }
+    console.log("tableDataRaw", tableDataRaw.length)
+    this.tableDataRaw = tableDataRaw
   },
   data () {
     return {
+      tableDataRaw: [],
       filter: {
         sekretess: ["ökad", "minskad", ""],
         eu: false,

@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/no-multiple-template-root -->
 <template>
   <v-row justify-center center class="my-4">
-    <v-col>
+    <v-col :cols="12" class="justify-center d-flex">
       <hero-chart />
     </v-col>
   </v-row>
@@ -36,4 +36,7 @@ export default {
 }
 </script>
 <style>
+.v-container {
+  max-width: 1200px;
+}
 </style>

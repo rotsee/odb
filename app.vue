@@ -1,15 +1,7 @@
 <template>
   <v-app>
     <v-app-bar app absolute class="py-2 px-4">
-      <a href="https://www.sjf.se">
-        <nuxt-img
-          width="222"
-          max-height="60"
-          src="/img/sjf-logo.svg"
-          alt="Journalistförbundet"
-        />
-      </a>
-      <v-spacer />
+      <v-spacer  class="hidden-md-and-down"/>
       <v-app-bar-title class="app_bar_title">
         <nuxt-link href="/">
           <component
@@ -18,6 +10,15 @@
           >Öppenhetsdatabasen</component>
         </nuxt-link>
       </v-app-bar-title>
+      <a href="https://www.sjf.se"  class="hidden-md-and-down">
+        <nuxt-img
+          max-width="222"
+          height="60"
+          src="/img/sjf-logo.svg"
+          alt="Journalistförbundet"
+        />
+      </a>
+      <v-spacer class="hidden-md-and-down"/>
     </v-app-bar>
 
     <v-main>

@@ -1,10 +1,12 @@
 <script setup>
+import { ref } from "vue"
 
 import { Bar } from "vue-chartjs"
 import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from "chart.js"
 ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
 
-const { pending, data: rawData } = await useLazyFetch("/api/plusminus", { method: "POST" })
+
+const { pending, data: rawData } = await useFetch("/api/plusminus")
 
 const chartData = computed(() => {
   if (pending.value) {
@@ -26,7 +28,7 @@ const chartData = computed(() => {
   }
 })
 
-const chartOptions = {
+const chartOptions = ref({
   responsive: true,
   indexAxis: 'y',
   scales: {
@@ -39,7 +41,7 @@ const chartOptions = {
       },
     },
   },
-}
+})
 
 </script>
 <template>

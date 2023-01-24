@@ -37,8 +37,10 @@
                       v-model="filter.sekretess_range"
                       label="Antal år som sekretessen gäller"
                       thumb-label="always"
-                      step="10"
-                      max="70"
+                      :step="10"
+                      show-ticks="always"
+                      :min="0"
+                      :max="70"
                       color="grey"
                       strict
                     />

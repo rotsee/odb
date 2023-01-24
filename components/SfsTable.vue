@@ -1,5 +1,5 @@
 <template>
-  <v-card>
+  <v-card :loading="loading">
     <v-card-title>
       Lagändringar de senaste åren
     </v-card-title>
@@ -39,6 +39,7 @@
                       thumb-label="always"
                       step="10"
                       max="70"
+                      color="grey"
                       strict
                     />
                   </v-col>
@@ -54,7 +55,6 @@
         :items="tableData"
         :items-per-page="rowsPerPage"
         :item-class="itemRowBackground"
-        :class="itemRowBackground"
         hide-default-footer
         @update:options="options = $event"
       >
@@ -118,6 +118,7 @@
 export default {
   data () {
     return {
+      loading: true,
       tableDataRaw: [],
       filter: {
         sekretess: ["ökad", "minskad", ""],
@@ -211,13 +212,13 @@ export default {
     },
   },
   mounted: async function () {
-    console.log("SETUP")
     const tableDataRaw = await $fetch("/api/table")
-    console.log("tableDataRaw", tableDataRaw.length)
+    this.loading = false
     this.tableDataRaw = tableDataRaw
   },
   methods: {
     itemRowBackground: item => {
+      console.log(item)
       if (item.sekretess === "ökad") {
         return "sekretess_ökad"
       }

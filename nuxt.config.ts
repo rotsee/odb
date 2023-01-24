@@ -6,10 +6,9 @@
 export default defineNuxtConfig({
   css: [
     "@/assets/css/typography.css",
-    "vuetify/styles",
   ],
   build: {
-    transpile: ["vuetify", "chart.js"],
+    transpile: ["chart.js", "vuetify"],
   },
   vite: {
     define: {
@@ -17,7 +16,7 @@ export default defineNuxtConfig({
     },
     ssr: {
       // Brode vi inte behöva
-      // noExternal: ['vuetify'],
+      // noExternal: ["vuetify"],
     },
   },
   runtimeConfig: {

@@ -95,6 +95,11 @@
             />
           </a>
         </template>
+        <template #item.sdate="{ item }">
+          <span>
+            {{ formatStartDate(item.value.sdate) }}
+          </span>
+        </template>
         <template #item.kategori="{ item }">
           <span v-if="item.value.eu">
             EU-lagstiftning &middot;
@@ -219,6 +224,19 @@ export default {
     this.tableDataRaw = tableDataRaw
   },
   methods: {
+    formatStartDate: d => {
+      if (d === "9") {
+        return "i.u."
+      }
+      const opts = {
+        month: "short",
+        year: "numeric",
+      }
+      const f = new Intl.DateTimeFormat("sv-SE", opts)
+      const parts = d.split(" ")
+      const date = new Date(parts[0])
+      return f.format(date)
+    },
     itemRowBackground: item => {
       console.log(item)
       if (item.sekretess === "ökad") {

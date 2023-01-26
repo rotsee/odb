@@ -23,6 +23,7 @@ export default defineNuxtConfig({
     // Allt sdom ska plockas med dot-env behöver deklareras här
     // googleApiKey: "",
     // googleSheetsId: "",
+    NODE_ENV: "",
   },
   app: {
     head: {

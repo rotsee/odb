@@ -36,7 +36,5 @@ export default {
 }
 </script>
 <style>
-.v-container {
-  max-width: 1200px;
-}
+
 </style>

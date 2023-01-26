@@ -29,7 +29,7 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: "sv",
       },
-      title: "Öppenhetsdatabasen",
+      title: "Öppenhetsdatabasen | Journalistförbundet",
       meta: [
         { name: "description", content: "Jounalistförbundets öppenhetsdatabas." },
       ],

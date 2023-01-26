@@ -2,9 +2,28 @@
   font-family: Futura Bold, Helvetica Neue, Helvetica, sans-serif;
 }
 .Typography__h1, h1 {
-  font-size: 26px;
+  font-size: 28px;
+  font-weight: bold;
   color: #e31d3c;
   margin-top: 26px;
   margin-bottom: 18px;
   line-height: 39px;
+}
+@media only screen 
+and (max-device-width: 800px) {
+  .Typography__h1, h1 {
+    font-size: 24px;
+  }
+}
+@media only screen 
+and (max-device-width: 600px) {
+  .Typography__h1, h1 {
+    font-size: 20px;
+  }
+}
+@media only screen 
+and (max-device-width: 400px) {
+  .Typography__h1, h1 {
+    font-size: 15px;
+  }
 }

@@ -30,7 +30,9 @@
 
     <v-footer>
       <small>
-        Öppenhetsdatabasen drivs av <a href="https://www.sjf.se/yrkesfragor/yttrandefrihet/yttrandefrihetsgruppen">Journalistförbundets yttrandefrihetsgrupp.</a>
+        Öppenhetsdatabasen drivs av 
+        <a href="https://www.sjf.se/yrkesfragor/yttrandefrihet/yttrandefrihetsgruppen">Journalistförbundets yttrandefrihetsgrupp</a>. 
+        Senast uppdaterad i januari 2023.
       </small>
     </v-footer>
   </v-app>

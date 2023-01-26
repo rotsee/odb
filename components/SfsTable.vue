@@ -1,7 +1,7 @@
 <template>
   <v-card :loading="loading">
     <v-card-title>
-      Lagändringar de senaste åren
+      Lagändringar i OSL de senaste åren
     </v-card-title>
     <v-card-text>
       <v-expansion-panels>
@@ -74,29 +74,31 @@
         <template #item.chapter-paragraph="{ item }">
           <v-tooltip v-if="item.value.chapter" :text="chapters[item.value.chapter]">
             <template #activator="{ props }">
-              <span v-bind="props">
+              <span v-bind="props" style="white-space: nowrap">
                 {{ item.value.chapter }}
                 <v-icon icon="mdi-information" color="grey" size="small" />
               </span>
             </template>
           </v-tooltip>
-          <span class="mx-1">
-            § {{ item.value.paragraph }}
+          <span style="white-space: nowrap">
+            <span class="mx-1">
+              § {{ item.value.paragraph }}
+            </span>
+            <a
+              class="table_link"
+              target="_new"
+              :href="`https://lagen.nu/2009:400#K${item.value.chapter}P${item.value.paragraph}S1`"
+            >
+              <v-icon
+                icon="mdi-open-in-new"
+                color="grey"
+                size="small"
+              />
+            </a>
           </span>
-          <a
-            class="table_link"
-            target="_new"
-            :href="`https://lagen.nu/2009:400#K${item.value.chapter}P${item.value.paragraph}S1`"
-          >
-            <v-icon
-              icon="mdi-open-in-new"
-              color="grey"
-              size="small"
-            />
-          </a>
         </template>
         <template #item.sdate="{ item }">
-          <span>
+          <span v-if="item.value.sdate">
             {{ formatStartDate(item.value.sdate) }}
           </span>
         </template>

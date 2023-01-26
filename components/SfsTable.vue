@@ -229,6 +229,7 @@ export default {
         return "i.u."
       }
       const opts = {
+        day: "numeric",
         month: "short",
         year: "numeric",
       }

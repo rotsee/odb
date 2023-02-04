@@ -1,11 +1,11 @@
 @font-face {
   font-family: "Futura Book";
-  src: url('~/assets/fonts/Futura Book.otf');
+  src: url('~/assets/fonts/FuturaBook.otf');
 }
 @font-face {
   font-family: "Futura Bold";
   font-weight: 700;
-  src: url('~/assets/fonts/Futura Bold.otf');
+  src: url('~/assets/fonts/FuturaBold.otf');
 }
 body {
   font-family: "Futura Book", "Helvetica Neue", Helvetica, sans-serif;

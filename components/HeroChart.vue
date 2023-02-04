@@ -52,12 +52,13 @@ const chartOptions = ref({
     <v-card-text>
       <bar
         v-if="chartData"
+        class="mb-2"
         :options="chartOptions"
         :data="chartData"
       />
-      <p>Lagändringarna är ordnade efter årtalet de träder ikraft</p>
+      <p>Lagändringarna är ordnade efter årtalet de träder i kraft</p>
     </v-card-text>
   </v-card>
 </template>
-<style>
+<style scoped>
 </style>

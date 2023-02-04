@@ -14,7 +14,7 @@
             <v-form>
               <v-container>
                 <v-row>
-                  <v-col>
+                  <v-col cols="auto" lg="6">
                     <v-select
                       v-model="filter.sekretess"
                       multiple
@@ -24,7 +24,7 @@
                       :items="['ökad', 'minskad', {title: 'ingen förändring', value: ''}]"
                     />
                   </v-col>
-                  <v-col>
+                  <v-col cols="auto" lg="6">
                     <v-checkbox
                       v-model="filter.eu"
                       label="Endast EU-relaterade ändringar"

@@ -1,5 +1,18 @@
+@font-face {
+  font-family: "Futura Book";
+  src: url('~/assets/fonts/Futura Book.otf');
+}
+@font-face {
+  font-family: "Futura Bold";
+  font-weight: 700;
+  src: url('~/assets/fonts/Futura Bold.otf');
+}
+body {
+  font-family: "Futura Book", "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 1.2rem;
+}
 .Typography__h1, h1, h2, h3 {
-  font-family: Futura Bold, Helvetica Neue, Helvetica, sans-serif;
+  font-family: "Futura Bold", "Helvetica Neue", Helvetica, sans-serif;
 }
 .Typography__h1, h1 {
   font-size: 28px;

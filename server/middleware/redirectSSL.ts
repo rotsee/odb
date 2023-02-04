@@ -1,7 +1,9 @@
 import redirectSSL from "redirect-ssl"
-export default defineEventHandler(() => {
+export default defineEventHandler(event => {
+  /*
   const config = useRuntimeConfig()
-  return redirectSSL.create({
+  redirectSSL.create({
     enabled: config.NODE_ENV === "production",
    })
+   */
 })

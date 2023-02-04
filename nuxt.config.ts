@@ -56,5 +56,5 @@ export default defineNuxtConfig({
     // https://content.nuxtjs.org/api/configuration
     defaultLocale: "sv-SE",
   },
-  serverMiddleware: [redirectSSL],
+  serverMiddleware: ["redirectSSL"],
 })

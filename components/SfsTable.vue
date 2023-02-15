@@ -52,13 +52,11 @@
         </v-expansion-panel>
       </v-expansion-panels>
       <v-data-table
-        v-model:page="tablePage"
         :headers="headers"
         :items="tableData"
         :items-per-page="rowsPerPage"
         :item-class="itemRowBackground"
         hide-default-footer
-        @update:options="options = $event"
       >
         <template #item.sfs="{ item }">
           <a
@@ -113,12 +111,6 @@
             {{ item.value.pages }} {{ item.value.pages === 1 ? "sida" : "sidor" }} ändringsförfattning
           </span>
         </template>
-        <template #bottom>
-          <v-pagination
-            v-model="tablePage"
-            :length="options.pageCount"
-          />
-        </template>
       </v-data-table>
     </v-card-text>
   </v-card>
@@ -134,11 +126,7 @@ export default {
         sekretess_range: [0, 70],
         eu: false,
       },
-      tablePage: 1,
-      options: {
-        pageCount: 1,
-      },
-      rowsPerPage: 15,
+      rowsPerPage: 20,
       chapters: {
         1: "Lagens innehåll",
         2: "Lagens tillämpningsområde",

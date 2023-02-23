@@ -14,7 +14,7 @@
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix ."
   },
   "devDependencies": {
-    "@nuxt/image-edge": "^1.0.0-27919678.2f5b64b",
+    "@nuxt/image-edge": "^1.0.0-27952794.567c688",
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
     "@volar-plugins/vetur": "^0.1.0",
     "eslint": "^8.34.0",

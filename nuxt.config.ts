@@ -41,15 +41,6 @@ export default defineNuxtConfig({
   modules: [
     "@nuxt/content",
     "@nuxt/image-edge",
-    /*
-    // @ts-ignore
-    // vite-plugin behöver startas så här för att funka med
-    async (options, nuxt) => {
-        nuxt.hooks.hook('vite:extendConfig', (config: any) => config.plugins.push(
-            vuetify()
-        ))
-    }
-  */
   ],
   /* MODUL-CONFIG */
   content: {

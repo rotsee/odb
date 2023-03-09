@@ -56,6 +56,7 @@
         :items="tableData"
         :items-per-page="rowsPerPage"
         :item-class="itemRowBackground"
+        footer.items-per-page-text="Ändringar per sida"
         hide-default-footer
       >
         <template #item.sfs="{ item }">
@@ -229,7 +230,6 @@ export default {
       return f.format(date)
     },
     itemRowBackground: item => {
-      console.log(item)
       if (item.sekretess === "ökad") {
         return "sekretess_ökad"
       }

@@ -1,5 +1,6 @@
 {
   "private": true,
+  "name": "odb",
   "engines": {
     "node": "v19.0.1",
     "npm": "8.19.2"

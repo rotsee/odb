@@ -41,6 +41,13 @@ const chartOptions = ref({
       },
     },
   },
+  plugins: {
+    tooltip: {
+      callbacks: {
+        label: ctx => `${ctx.dataset.label}: ${Math.abs(ctx.parsed.x)}`,
+      },
+    },
+  },
 })
 
 </script>

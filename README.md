@@ -10,3 +10,12 @@ Byggd med Vuetify och Chart.js.
 Öppen Trellotavla finns här:
 https://trello.com/b/FuCfdopz/%C3%B6ppenhetsdatabasen-sajt
 
+## Utveckling
+
+För att komma igång:
+
+```sh
+npm install
+npm run dev
+```
+

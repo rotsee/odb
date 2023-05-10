@@ -1,7 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar app absolute class="pr-4 pt-2">
-      <v-spacer  class="hidden-md-and-down"/>
+    <v-app-bar app flat color="#e7e7e7">
       <v-app-bar-title class="app_bar_title">
         <nuxt-link href="/">
           <component
@@ -10,16 +9,6 @@
           >Öppenhetsdatabasen</component>
         </nuxt-link>
       </v-app-bar-title>
-      <a href="https://www.sjf.se">
-        <nuxt-img
-          id="sjf-logo"
-          max-width="222"
-          max-height="60"
-          src="/img/sjf-logo.svg"
-          alt="Journalistförbundet"
-        />
-      </a>
-      <v-spacer class="hidden-md-and-down"/>
     </v-app-bar>
 
     <v-main>
@@ -32,7 +21,7 @@
       <small>
         Öppenhetsdatabasen drivs av 
         <a href="https://www.sjf.se/yrkesfragor/yttrandefrihet/yttrandefrihetsgruppen">Journalistförbundets yttrandefrihetsgrupp</a>. 
-        Senast uppdaterad i januari 2023.
+        Senast uppdaterad i april 2023.
       </small>
     </v-footer>
   </v-app>

@@ -1,7 +1,7 @@
 import raw from "../../assets/data/data.json" assert { type: "json" }
 
 
-export default defineEventHandler(async () => {
+export default defineEventHandler(() => {
   interface DataPoint {
     sekretess: string
     sdate: string

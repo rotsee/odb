@@ -20,11 +20,11 @@ const chartData = computed(() => {
     datasets: [{
       label: "Lagändringar som minskat öppenheten",
       data: data.map(x => -x.ökad),
-      backgroundColor: "rgba(255, 99, 132, 0.8)",
+      backgroundColor: "#e2c51d",
     }, {
       label: "Lagändringar som ökat öppenheten",
       data: data.map(x => x.minskad),
-      backgroundColor: "rgba(75, 192, 192, 0.8)",
+      backgroundColor: "#1de2c5",
     }],
   }
 })

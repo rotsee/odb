@@ -6,7 +6,6 @@ import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, Li
 ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
 ChartJS.defaults.font.family = "Futura Book"
 
-
 const { pending, data: rawData } = await useFetch("/api/plusminus")
 
 const chartData = computed(() => {
@@ -50,7 +49,6 @@ const chartOptions = ref({
     },
   },
 })
-
 </script>
 <template>
   <v-card max-width="700" :loading="pending">
@@ -68,5 +66,3 @@ const chartOptions = ref({
     </v-card-text>
   </v-card>
 </template>
-<style scoped>
-</style>

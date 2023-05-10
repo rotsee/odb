@@ -11,7 +11,7 @@ export default defineEventHandler(() => {
     .filter(x => x.sekretess)
     .filter(x => x.sdate !== "9") // FIXME i rådata
     .reduce((o: {[y: string]: {[k: string]: number}}, x: DataPoint) => {
-    //.reduce((o, x) => {
+    // .reduce((o, x) => {
       const y = x.sdate.slice(0, 4)
       if (!(y in o)) {
         o[y] = {"ökad": 0, "minskad": 0}

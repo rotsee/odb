@@ -54,7 +54,7 @@ const chartOptions = ref({
 </script>
 <template>
   <v-card max-width="700" :loading="pending">
-    <v-card-title>
+    <v-card-title class="text-wrap">
       Så har de senaste årens lagändringar förändrat öppenheten i samhället
     </v-card-title>
     <v-card-text>

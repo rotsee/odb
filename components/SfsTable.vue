@@ -80,7 +80,7 @@
             </template>
           </v-tooltip>
           <span style="white-space: nowrap">
-            <span class="mx-1">
+            <span v-if="item.value.paragraph" class="mx-1">
               § {{ item.value.paragraph }}
             </span>
             <a

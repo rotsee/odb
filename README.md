@@ -19,3 +19,4 @@ npm install
 npm run dev
 ```
 
+Se `test/embed.html` för exempel på inbäddningskod (notera att iframe-resize-scriptets version måste matcha det som används i appen!)

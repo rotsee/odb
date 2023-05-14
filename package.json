@@ -31,6 +31,6 @@
     "redirect-ssl": "3.0.0",
     "sass": "1.62.1",
     "vue-chartjs": "5.2.0",
-    "vuetify": "3.2.3"
+    "vuetify": "^3.2.4"
   }
 }

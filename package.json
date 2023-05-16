@@ -20,7 +20,7 @@
     "@volar-plugins/vetur": "^2.0.0",
     "eslint": "^8.40.0",
     "eslint-config-prettier": "^8.8.0",
-    "eslint-plugin-vue": "^9.12.0",
+    "eslint-plugin-vue": "^9.13.0",
     "prettier": "^2.8.8"
   },
   "dependencies": {
@@ -31,6 +31,6 @@
     "redirect-ssl": "3.0.0",
     "sass": "1.62.1",
     "vue-chartjs": "5.2.0",
-    "vuetify": "^3.2.4"
+    "vuetify": "^3.2.5"
   }
 }

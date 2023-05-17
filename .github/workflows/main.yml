@@ -5,7 +5,16 @@ on:
       - main
 
 jobs:
+  data:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10' 
+      - run: # TODO
+
   build:
+    needs: data
     runs-on: ubuntu-latest
 
     steps:

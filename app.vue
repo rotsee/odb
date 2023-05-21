@@ -1,10 +1,13 @@
+<script setup>
+const route = useRoute()
+</script>
 <template>
   <v-app>
     <v-toolbar flat color="#e7e7e7">
       <template #title>
         <nuxt-link href="/" class="app_bar_title">
           <component
-            :is="$route.name === 'index' ? 'h1' : 'span'"
+            :is="route.name === 'index' ? 'h1' : 'span'"
             class="Typography__h1"
           >Öppenhetsdatabasen</component>
         </nuxt-link>

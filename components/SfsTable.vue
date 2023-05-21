@@ -33,9 +33,9 @@
                 </v-row>
                 <v-row>
                   <v-col>
+                    <label class="v-label">Antal år som sekretessen gäller</label>
                     <v-range-slider
                       v-model="filter.sekretess_range"
-                      label="Antal år som sekretessen gäller"
                       thumb-label="always"
                       :step="10"
                       show-ticks="always"

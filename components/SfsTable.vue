@@ -76,27 +76,24 @@
             <template #activator="{ props }">
               <span v-bind="props" style="white-space: nowrap">
                 {{ item.raw.chapter }}
-                <v-icon icon="mdi-information" color="grey" size="small" />
+                <span v-if="item.raw.paragraph" class="mx-1">
+                  § {{ item.raw.paragraph }}
+                </span>
+                <a
+                  v-if="item.raw.chapter && item.raw.paragraph"
+                  class="table_link"
+                  target="_new"
+                  :href="`https://lagen.nu/2009:400#K${item.raw.chapter}P${item.raw.paragraph}S1`"
+                >
+                  <v-icon
+                    icon="mdi-open-in-new"
+                    color="grey"
+                    size="small"
+                  />
+                </a>
               </span>
             </template>
           </v-tooltip>
-          <span style="white-space: nowrap">
-            <span v-if="item.raw.paragraph" class="mx-1">
-              § {{ item.raw.paragraph }}
-            </span>
-            <a
-              v-if="item.raw.chapter && item.raw.paragraph"
-              class="table_link"
-              target="_new"
-              :href="`https://lagen.nu/2009:400#K${item.raw.chapter}P${item.raw.paragraph}S1`"
-            >
-              <v-icon
-                icon="mdi-open-in-new"
-                color="grey"
-                size="small"
-              />
-            </a>
-          </span>
         </template>
         <template #item.sdate="{ item }">
           <span v-if="item.raw.sdate">

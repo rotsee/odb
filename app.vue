@@ -1,15 +1,15 @@
 <template>
   <v-app>
-    <v-app-bar app flat color="#e7e7e7">
-      <v-app-bar-title class="app_bar_title">
-        <nuxt-link href="/">
+    <v-toolbar flat color="#e7e7e7">
+      <template #title>
+        <nuxt-link href="/" class="app_bar_title">
           <component
             :is="$route.name === 'index' ? 'h1' : 'span'"
             class="Typography__h1"
           >Öppenhetsdatabasen</component>
         </nuxt-link>
-      </v-app-bar-title>
-    </v-app-bar>
+      </template>
+    </v-toolbar>
 
     <v-main>
       <v-container>
@@ -27,7 +27,7 @@
   </v-app>
 </template>
 <style>
-.app_bar_title a {
+a.app_bar_title {
   text-decoration: none;
 }
 .v-container {

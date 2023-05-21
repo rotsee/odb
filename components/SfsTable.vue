@@ -114,6 +114,15 @@
             {{ item.raw.pages }} {{ item.raw.pages === 1 ? "sida" : "sidor" }} ändringsförfattning
           </span>
         </template>
+        <template #footer.prepend>
+          <v-btn
+            variant="text"
+            href="/data/data.csv"
+            icon="mdi-download"
+            title="Ladda ner tabellen"
+          />
+          <v-spacer />
+        </template>
       </v-data-table>
     </v-card-text>
   </v-card>

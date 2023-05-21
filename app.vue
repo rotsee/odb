@@ -33,25 +33,4 @@ a.app_bar_title {
 .v-container {
   max-width: 1200px;
 }
-#sjf-logo {
-  height: 60px;
-}
-@media only screen 
-and (max-device-width: 800px) {
-  #sjf-logo {
-    height: 40px;
-  }
-}
-@media only screen 
-and (max-device-width: 600px) {
-  #sjf-logo {
-    height: 30px;
-  }
-}
-@media only screen 
-and (max-device-width: 400px) {
-  #sjf-logo {
-    height: 20px;
-  }
-}
 </style>

@@ -103,6 +103,11 @@
             {{ formatStartDate(item.raw.sdate) }}
           </span>
         </template>
+        <template #item.prop="{ item }">
+          <span v-if="item.raw.prop.length">
+            {{ item.raw.prop.join("&nbsp;&middot; ") }}
+          </span>
+        </template>
         <template #item.kategori="{ item }">
           <span v-if="item.raw.eu">
             EU-lagstiftning &middot;
@@ -114,6 +119,7 @@
             {{ item.raw.pages }} {{ item.raw.pages === 1 ? "sida" : "sidor" }} ändringsförfattning
           </span>
         </template>
+
         <template #footer.prepend>
           <v-btn
             variant="text"
@@ -201,6 +207,10 @@ export default {
         {
           title: "Startdatum",
           key: "sdate",
+        },
+        {
+          title: "Proposition(er)",
+          key: "prop",
         },
         {
           title: "Övrigt",

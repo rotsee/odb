@@ -1,6 +1,6 @@
 <template>
   <v-card :loading="loading">
-    <v-card-title>
+    <v-card-title class="text-wrap">
       Lagändringar i OSL de senaste åren
     </v-card-title>
     <v-card-text>
@@ -62,31 +62,32 @@
         <template #item.sfs="{ item }">
           <a
             target="_new"
-            :href="item.value.sfs_url"
+            :href="item.raw.sfs_url"
           >
-            {{ item.value.sfs }}
+            {{ item.raw.sfs }}
           </a>
         </template>
         <template #item.sekretess="{ item }">
-          {{ item.value.sekretess }}
+          {{ item.raw.sekretess }}
         </template>
         <template #item.chapter-paragraph="{ item }">
-          <v-tooltip v-if="item.value.chapter" :text="chapters[item.value.chapter]">
+          <v-tooltip v-if="item.raw.chapter" :text="chapters[item.raw.chapter]">
             <template #activator="{ props }">
               <span v-bind="props" style="white-space: nowrap">
-                {{ item.value.chapter }}
+                {{ item.raw.chapter }}
                 <v-icon icon="mdi-information" color="grey" size="small" />
               </span>
             </template>
           </v-tooltip>
           <span style="white-space: nowrap">
-            <span v-if="item.value.paragraph" class="mx-1">
-              § {{ item.value.paragraph }}
+            <span v-if="item.raw.paragraph" class="mx-1">
+              § {{ item.raw.paragraph }}
             </span>
             <a
+              v-if="item.raw.chapter && item.raw.paragraph"
               class="table_link"
               target="_new"
-              :href="`https://lagen.nu/2009:400#K${item.value.chapter}P${item.value.paragraph}S1`"
+              :href="`https://lagen.nu/2009:400#K${item.raw.chapter}P${item.raw.paragraph}S1`"
             >
               <v-icon
                 icon="mdi-open-in-new"
@@ -97,19 +98,19 @@
           </span>
         </template>
         <template #item.sdate="{ item }">
-          <span v-if="item.value.sdate">
-            {{ formatStartDate(item.value.sdate) }}
+          <span v-if="item.raw.sdate">
+            {{ formatStartDate(item.raw.sdate) }}
           </span>
         </template>
         <template #item.kategori="{ item }">
-          <span v-if="item.value.eu">
+          <span v-if="item.raw.eu">
             EU-lagstiftning &middot;
           </span>
-          <span v-if="item.value.validity">
-            Sekretess i {{ item.value.validity }} år &middot;
+          <span v-if="item.raw.validity">
+            Sekretess i {{ item.raw.validity }} år &middot;
           </span>
           <span>
-            {{ item.value.pages }} {{ item.value.pages === 1 ? "sida" : "sidor" }} ändringsförfattning
+            {{ item.raw.pages }} {{ item.raw.pages === 1 ? "sida" : "sidor" }} ändringsförfattning
           </span>
         </template>
       </v-data-table>

@@ -56,3 +56,16 @@ Processen ser ut så här:
 
 Just nu läser vi alltså in all data i en stor jsonblobb. Det är ännu så länge inga problem, eftersom det bara rör sig om några hundra rader. Skulle databasen uppdateras bakåt i tiden, kan API:et möjligen behöva serva datan i mindre bitar så småningom.
 
+Du behöver en nyckel till Google-sheetsdokumentet i en miljövariabel `GOOGLE_SHEETS_KEY`, eller .env-fil, se .env.sample, för att köra scripet
+
+```sh
+pip install -r requirements.txt
+./create-site-data.py
+```
+
+(Beroende på miljö vill sannolikt hellre installera Pythonberoendena med virtualenv eller liknanden)
+
+Kör tester:
+```sh
+python3 -m pytest tests.py
+```

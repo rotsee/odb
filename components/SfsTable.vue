@@ -56,8 +56,8 @@
         :items="tableData"
         :items-per-page="rowsPerPage"
         :item-class="itemRowBackground"
-        footer.items-per-page-text="Ändringar per sida"
-        hide-default-footer
+        items-per-page-text="Ändringar per sida"
+        page-text="{0}–{1} av {2}"
       >
         <template #item.sfs="{ item }">
           <a

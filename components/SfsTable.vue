@@ -104,8 +104,16 @@
           </span>
         </template>
         <template #item.prop="{ item }">
-          <span v-if="item.raw.prop.length">
-            {{ item.raw.prop.join("&nbsp;&middot; ") }}
+          <span v-for="p, idx in item.raw.prop" :key="p">
+            <a
+              target="_new"
+              :href="item.raw.prop_link[idx]"
+            >
+              {{ p.slice(2) }}
+            </a>
+            <span v-if="item.raw.prop.length > idx + 1">
+              &nbsp;&middot;&#32;
+            </span>
           </span>
         </template>
         <template #item.kategori="{ item }">

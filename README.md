@@ -50,7 +50,7 @@ Processen ser ut så här:
 2. Hämta ytterligare data för varje SFS (t.ex. förarbeten och datum) från rkrattsbaser.gov.se och lägg till i datan. Notera att den ny version av den sajten kommer att lanseras så småningom. En tidig version finns på beta.rkrattsbaser.gov.se, och ser så här långt (maj 2023) snarlik ut.
 3. Parsa förarbetena (ett ostrukturerat textfält) till en lista, och filtrera ut propparna
 4. Slå upp propparna i Riksdagens API (om du läser den här texten har du nog redan koll på Regeringskansliets bländande brist på strukturerad data...), hämta nerladdningslänkarna, och lägg till dem i datan
-5. Hämta själva SFS-dokumentet från antingen rkrattsdb.gov.se eller svenskforfattningssamling.se (beroende på hur gamla de är). OBS: Om det finns ett permanent filsystem i produktionsmiljön kan det vara värt att lagra filerna där, eftersom det kan ta lång tid att ladda ner dem alla annars.
+5. Hämta själva SFS-dokumentet från antingen rkrattsdb.gov.se eller svenskforfattningssamling.se (beroende på hur gamla de är). OBS: Om det finns ett permanent filsystem i produktionsmiljön kan det vara värt att lagra filerna där, eftersom det kan ta lång tid att ladda ner dem alla annars. Andvänd `--dir` för att ange katalog.
 6. Öppna PDF:erna och extrahera texten. Just nu lägger vi till antal ord(-ish) och sidor till datan, men vi skulle också kunna spara innehållet för att göra dem sökbara (i ett ambitiöst utförande med en dokumentdatabas, typ Elastic Search, alternativt så tokeniserar och stemmar man bara med t.ex. NLTK, och sparar en bag-of-words, eller ett bloomfilter eller likande i datan); eller för att söka efter specifika begrepp eller liknande.
 7. Spara en json-fil till sajten, och en csv-fil för nerladdning.
 

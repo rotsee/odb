@@ -28,7 +28,6 @@
     "@mdi/font": "7.2.96",
     "@nuxt/content": "^2.7.2",
     "chart.js": "^4.3.3",
-    "redirect-ssl": "3.0.0",
     "sass": "^1.64.2",
     "vue-chartjs": "5.2.0",
     "vuetify": "^3.3.12"

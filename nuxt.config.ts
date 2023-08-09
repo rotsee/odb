@@ -1,5 +1,3 @@
-// import redirectSSL from "redirect-ssl"
-
 // import vuetify from 'vite-plugin-vuetify'
 // Ev borde vi använde denna, för bättre tree-shaking, istf att importera allt i pluginen?
 // https://next.vuetifyjs.com/en/features/treeshaking/
@@ -50,5 +48,4 @@ export default defineNuxtConfig({
     // https://content.nuxtjs.org/api/configuration
     defaultLocale: "sv-SE",
   },
-  // serverMiddleware: [redirectSSL],
 })

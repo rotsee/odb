@@ -57,33 +57,34 @@
         :items-per-page="rowsPerPage"
         :item-class="itemRowBackground"
         :loading="loading"
+        :items-per-page-options="[20, 50, 100, -1]"
         items-per-page-text="Ändringar per sida"
         page-text="{0}–{1} av {2}"
       >
         <template #item.sfs="{ item }">
           <a
             target="_new"
-            :href="item.raw.sfs_url"
+            :href="item.sfs_url"
           >
-            {{ item.raw.sfs }}
+            {{ item.sfs }}
           </a>
         </template>
         <template #item.sekretess="{ item }">
-          {{ item.raw.sekretess }}
+          {{ item.sekretess }}
         </template>
         <template #item.chapter-paragraph="{ item }">
-          <v-tooltip v-if="item.raw.chapter" :text="chapters[item.raw.chapter]">
+          <v-tooltip v-if="item.chapter" :text="chapters[item.chapter]">
             <template #activator="{ props }">
               <span v-bind="props" style="white-space: nowrap">
-                {{ item.raw.chapter }}
-                <span v-if="item.raw.paragraph" class="mx-1">
-                  § {{ item.raw.paragraph }}
+                {{ item.chapter }}
+                <span v-if="item.paragraph" class="mx-1">
+                  § {{ item.paragraph }}
                 </span>
                 <a
-                  v-if="item.raw.chapter && item.raw.paragraph"
+                  v-if="item.chapter && item.paragraph"
                   class="table_link"
                   target="_new"
-                  :href="`https://lagen.nu/2009:400#K${item.raw.chapter}P${item.raw.paragraph}S1`"
+                  :href="`https://lagen.nu/2009:400#K${item.chapter}P${item.paragraph}S1`"
                 >
                   <v-icon
                     icon="mdi-open-in-new"
@@ -96,32 +97,32 @@
           </v-tooltip>
         </template>
         <template #item.sdate="{ item }">
-          <span v-if="item.raw.sdate">
-            {{ formatStartDate(item.raw.sdate) }}
+          <span v-if="item.sdate">
+            {{ formatStartDate(item.sdate) }}
           </span>
         </template>
         <template #item.prop="{ item }">
-          <span v-for="p, idx in item.raw.prop" :key="p">
+          <span v-for="p, idx in item.prop" :key="p">
             <a
               target="_new"
-              :href="item.raw.prop_link[idx]"
+              :href="item.prop_link[idx]"
             >
               {{ p.slice(2) }}
             </a>
-            <span v-if="item.raw.prop.length > idx + 1">
+            <span v-if="item.prop.length > idx + 1">
               &nbsp;&middot;&#32;
             </span>
           </span>
         </template>
         <template #item.kategori="{ item }">
-          <span v-if="item.raw.eu">
+          <span v-if="item.eu">
             EU-lagstiftning &middot;
           </span>
-          <span v-if="item.raw.validity">
-            Sekretess i {{ item.raw.validity }} år &middot;
+          <span v-if="item.validity">
+            Sekretess i {{ item.validity }} år &middot;
           </span>
           <span>
-            {{ item.raw.pages }} {{ item.raw.pages === 1 ? "sida" : "sidor" }} ändringsförfattning
+            {{ item.pages }} {{ item.pages === 1 ? "sida" : "sidor" }} ändringsförfattning
           </span>
         </template>
 

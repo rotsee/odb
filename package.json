@@ -27,7 +27,6 @@
   },
   "dependencies": {
     "@mdi/font": "^7.3.67",
-    "@nuxt/content": "^2.9.0",
     "chart.js": "^4.4.1",
     "nuxt": "^3.8.2",
     "sass": "^1.69.5",

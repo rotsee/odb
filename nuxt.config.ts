@@ -43,7 +43,6 @@ export default defineNuxtConfig({
     },
   },
   modules: [
-    "@nuxt/content",
     "@nuxt/image",
     (_options, nuxt) => {
       nuxt.hooks.hook('vite:extendConfig', (config) => {
@@ -52,9 +51,4 @@ export default defineNuxtConfig({
       })
     },
   ],
-  /* MODUL-CONFIG */
-  content: {
-    // https://content.nuxtjs.org/api/configuration
-    defaultLocale: "sv-SE",
-  },
 })

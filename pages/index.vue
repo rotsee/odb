@@ -16,7 +16,6 @@
         För att få en bild av hela lagändringspusslet, har vi byggt en databas över lagändringar i OSL, med start i början av förra manadatperioden. 
         Databasen innehåller omkring 200 lagändringar i OSL (alla substantiella ändringar av lagtexter, men inte vissa rubrikändringar, korrektur och liknande).
       </p>
-      <a href="/metod">Läs mer »</a>
     </v-col>
   </v-row>
   <v-row>
@@ -25,16 +24,3 @@
     </v-col>
   </v-row>
 </template>
-
-<script>
-export default {
-  setup: async function () {
-  },
-  data () {
-    return {}
-  },
-}
-</script>
-<style>
-
-</style>

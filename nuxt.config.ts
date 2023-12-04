@@ -1,6 +1,4 @@
-// import vuetify from 'vite-plugin-vuetify'
-// Ev borde vi använde denna, för bättre tree-shaking, istf att importera allt i pluginen?
-// https://next.vuetifyjs.com/en/features/treeshaking/
+import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -11,6 +9,11 @@ export default defineNuxtConfig({
     transpile: ["chart.js", "vuetify"],
   },
   vite: {
+    vue: {
+      template: {
+        transformAssetUrls,
+      },
+    },
     define: {
       "process.env.DEBUG": false,
     },
@@ -42,6 +45,12 @@ export default defineNuxtConfig({
   modules: [
     "@nuxt/content",
     "@nuxt/image",
+    (_options, nuxt) => {
+      nuxt.hooks.hook('vite:extendConfig', (config) => {
+        // @ts-expect-error
+        config.plugins.push(vuetify({ autoImport: true }))
+      })
+    },
   ],
   /* MODUL-CONFIG */
   content: {

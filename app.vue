@@ -15,16 +15,13 @@ const route = useRoute()
     </v-toolbar>
 
     <v-main>
-      <v-container>
-        <NuxtPage />
-      </v-container>
+      <NuxtPage keep-alive />
     </v-main>
 
     <v-footer>
       <small>
         Öppenhetsdatabasen drivs av 
         <a href="https://www.sjf.se/yrkesfragor/yttrandefrihet/yttrandefrihetsgruppen">Journalistförbundets yttrandefrihetsgrupp</a>. 
-        Senast uppdaterad i april 2023.
       </small>
     </v-footer>
   </v-app>

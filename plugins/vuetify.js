@@ -5,6 +5,7 @@ import { sv } from "vuetify/locale"
 
 export default defineNuxtPlugin((app) => {
   const vuetify = createVuetify({
+    ssr: true,
     locale: {
       locale: "sv",
       messages: { sv },

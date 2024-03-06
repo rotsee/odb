@@ -38,6 +38,9 @@ export default defineNuxtConfig({
       meta: [
         { name: "description", content: "Jounalistförbundets öppenhetsdatabas." },
       ],
+      script: [
+        { src: "https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.9/iframeResizer.contentWindow.min.js" },
+      ],
     },
     baseURL: '/odb/'
   },

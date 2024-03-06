@@ -21,6 +21,7 @@ export default defineNuxtConfig({
       // Brode vi inte behöva
       // noExternal: ["vuetify"],
     },
+    base: '/odb/'
   },
   runtimeConfig: {
     // Allt sdom ska plockas med dot-env behöver deklareras här
@@ -38,6 +39,7 @@ export default defineNuxtConfig({
         { name: "description", content: "Jounalistförbundets öppenhetsdatabas." },
       ],
     },
+    baseURL: '/odb/'
   },
   modules: [],
 })

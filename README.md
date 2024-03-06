@@ -10,8 +10,6 @@ Sajten är byggd med NuxtJS, Vuetify och Chart.js. Nuxt 3 bygger på Vue 3, vilk
 
 ~~Innehållssidor servas med [Nuxts content-modul](https://content.nuxtjs.org/). Varje markdownfil som läggs under `./content`-mappen blir automatiskt en sida. Just nu finns bara en innehållssida: `/metod`.~~
 
-”Senast uppdaterad”-datumet i sidfoten är tills vidare hårdkodat i `app.vue`.
-
 **Uppdatering december 2023**  Sidan är nerskalad, och kan nu byggas statiskt med `npm run generate`!
 
 
@@ -34,8 +32,8 @@ Det finns inga tester, men det kan vara värt att köra `npm run lint` innan du 
 
 ## Publicering
 
-Sajten är bara testad med Node 19, men bör i teorin fungera med alla NodeJS-versioner från och med 16.10.
-`package.json` innehåller testade Node- och npm-versioner under `{ engines }`. Alla produktionsberoenden är pinnade till exakta versioner.
+Sajten är testad med Node 19, 20 och 21, men bör i teorin fungera med alla NodeJS-versioner från och med 16.10.
+`package.json` innehåller senast testade Node- och npm-versioner under `{ engines }`. Alla produktionsberoenden är pinnade till exakta versioner.
 
 Bygga dynamisk sajt, med minimalt backend-API:
 

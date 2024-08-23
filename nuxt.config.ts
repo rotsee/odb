@@ -5,9 +5,11 @@ export default defineNuxtConfig({
   css: [
     "@/assets/css/typography.css",
   ],
+
   build: {
     transpile: ["chart.js", "vuetify"],
   },
+
   vite: {
     vue: {
       template: {
@@ -23,12 +25,14 @@ export default defineNuxtConfig({
     },
     base: '/odb/'
   },
+
   runtimeConfig: {
     // Allt sdom ska plockas med dot-env behöver deklareras här
     // googleApiKey: "",
     // googleSheetsId: "",
     NODE_ENV: "",
   },
+
   app: {
     head: {
       htmlAttrs: {
@@ -44,5 +48,7 @@ export default defineNuxtConfig({
     },
     baseURL: '/odb/'
   },
+
   modules: [],
+  compatibilityDate: "2024-08-23",
 })

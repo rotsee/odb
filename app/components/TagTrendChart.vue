@@ -10,8 +10,8 @@ ChartJS.register(Title, Tooltip, Legend, LineElement, PointElement, CategoryScal
 
 const { data: trendData } = await useFetch("/api/tags")
 
-const tag1 = ref("tystnadsplikt")
-const tag2 = ref("brottsbekämpning")
+const tag1 = ref("visselblåsare")
+const tag2 = ref("polisiär datainsamling")
 
 const COLORS = ["#ed8123", "#63c29e"]
 
@@ -44,7 +44,7 @@ const chartOptions = {
       min: 0,
       ticks: {
         precision: 0,
-        maxTicksLimit: 6,
+        maxTicksLimit: 4,
         callback: v => `${v} %`,
       },
     },

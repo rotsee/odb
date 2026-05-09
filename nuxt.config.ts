@@ -19,11 +19,7 @@ export default defineNuxtConfig({
     define: {
       "process.env.DEBUG": false,
     },
-    ssr: {
-      // Brode vi inte behöva
-      // noExternal: ["vuetify"],
-    },
-    base: '/odb/'
+    base: '/odb/',
   },
 
   runtimeConfig: {
@@ -46,9 +42,8 @@ export default defineNuxtConfig({
         { src: "https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.9/iframeResizer.contentWindow.min.js" },
       ],
     },
-    baseURL: '/odb/'
+    baseURL: '/odb/',
   },
 
-  modules: [],
-  compatibilityDate: "2024-08-23",
+  compatibilityDate: "2026-05-01",
 })

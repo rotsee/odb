@@ -138,8 +138,6 @@
   </v-card>
 </template>
 <script setup>
-  import { ref } from 'vue'
-
   const { pending, data: tableDataRaw } = await useFetch("/api/table")
   const filter = ref({
     sekretess: ["ökad", "minskad", ""],

@@ -10,8 +10,8 @@ ChartJS.register(Title, Tooltip, Legend, LineElement, PointElement, CategoryScal
 
 const { data: trendData } = await useFetch("/api/tags")
 
-const tag1 = ref("visselblåsare")
-const tag2 = ref("polisiär datainsamling")
+const tag1 = ref("vård") //ref("visselblåsare")
+const tag2 = ref("terrorism") //ref("polisiär datainsamling")
 
 const COLORS = ["#ed8123", "#63c29e"]
 

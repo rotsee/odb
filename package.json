@@ -28,6 +28,6 @@
     "sass": "1.99.0",
     "vue-chartjs": "5.3.3",
     "vuetify": "4.0.7",
-    "vuetify-nuxt-module": "^0.19.5"
+    "vuetify-nuxt-module": "0.19.5"
   }
 }

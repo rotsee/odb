@@ -20,6 +20,11 @@
         </p>
       </v-col>
     </v-row>
+    <v-row justify="center" class="my-4">
+      <v-col :cols="12" class="justify-center d-flex">
+        <tag-trend-chart />
+      </v-col>
+    </v-row>
     <v-row>
       <v-col>
         <sfs-table />

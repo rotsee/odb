@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-row justify-center center class="my-4">
+    <v-row justify="center" class="my-4">
       <v-col :cols="12" class="justify-center d-flex">
         <hero-chart />
       </v-col>

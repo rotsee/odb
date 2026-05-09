@@ -14,7 +14,7 @@
             <v-form>
               <v-container>
                 <v-row>
-                  <v-col cols="auto" lg="6">
+                  <v-col cols="auto" lg="4">
                     <v-select
                       v-model="filter.sekretess"
                       multiple
@@ -24,7 +24,16 @@
                       :items="['ökad', 'minskad', {title: 'ingen förändring', value: ''}]"
                     />
                   </v-col>
-                  <v-col cols="auto" lg="6">
+                  <v-col cols="auto" lg="4">
+                    <v-select
+                      v-model="filter.tags"
+                      multiple
+                      chips
+                      label="Taggar"
+                      :items="availableTags"
+                    />
+                  </v-col>
+                  <v-col cols="auto">
                     <v-checkbox
                       v-model="filter.eu"
                       label="Endast EU-relaterade ändringar"
@@ -58,6 +67,7 @@
         :items-per-page-options="[20, 50, 100, -1]"
         items-per-page-text="Ändringar per sida"
         page-text="{0}–{1} av {2}"
+        class="mt-4"
       >
         <template #item.sfs="{ item }">
           <a
@@ -158,7 +168,7 @@
       .filter(row => (
         !row.validity && !filter.value.sekretess_range[0]
       ) || (
-        row.validity >= filter.value.sekretess_range[0] && row.validity <= filter.value.sekretess_range[1])
+        row.validity >= filter.value.sekretess_range[0] && row.validity <= filter.value.sekretess_range[1]),
       )
   })
   const chapters = {
@@ -247,6 +257,29 @@
     const date = new Date(parts[0])
     return f.format(date)
   }
+  const availableTags = computed(() => {
+    if (pending.value) {
+      return null
+    }
+    if (!tableDataRaw.value) {
+      return null
+    }
+    const tags = new Set()
+    tableDataRaw.value.forEach(row => {
+      row.tags.forEach(tags.add, tags)
+    })
+    const _blacklist = [
+      "eu",
+      "allmänna handlingar",
+      "allmän handling",
+      "OSL",
+      "sekretess",
+      "offentlighet",
+      "öppenhet",
+      "öppenhetsdatabasen",
+    ]
+    return Array.from(tags).filter(x => !_blacklist.includes(x)).sort(new Intl.Collator("sv-SE").compare)
+  })
   /*
   const itemRowBackground = item => {
     if (item.sekretess === "ökad") {

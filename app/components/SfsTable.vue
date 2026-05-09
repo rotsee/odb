@@ -150,9 +150,10 @@
 <script setup>
   const { pending, data: tableDataRaw } = await useFetch("/api/table")
   const filter = ref({
+    eu: false,
     sekretess: ["ökad", "minskad", ""],
     sekretess_range: [0, 70],
-    eu: false,
+    tags: [],
   })
   const tableData = computed(() => {
     if (pending.value) {
@@ -170,6 +171,12 @@
       ) || (
         row.validity >= filter.value.sekretess_range[0] && row.validity <= filter.value.sekretess_range[1]),
       )
+      .filter(row => {
+        if (!filter.value.tags.length) {
+          return true
+        }
+        return filter.value.tags.every(t => row.tags.includes(t))
+      })
   })
   const chapters = {
     1: "Lagens innehåll",

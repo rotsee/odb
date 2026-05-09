@@ -2,8 +2,8 @@
   "private": true,
   "name": "odb",
   "engines": {
-    "node": "v22.11.0",
-    "npm": "10.9.0"
+    "node": "v22.22.x",
+    "npm": "10.9.x"
   },
   "scripts": {
     "build": "nuxt build",
@@ -18,7 +18,7 @@
     "@nuxt/eslint": "^1.15.2",
     "@volar-plugins/vetur": "^2.0.0",
     "eslint": "^10.3.0",
-    "eslint-config-prettier": "^9.1.0",
+    "eslint-config-prettier": "^10.1.8",
     "prettier": "^3.8.3"
   },
   "dependencies": {

@@ -26,7 +26,7 @@ const chartData = computed(() => {
   }
 })
 
-const chartOptions = ref({
+const chartOptions = {
   responsive: true,
   indexAxis: 'y',
   scales: {
@@ -46,7 +46,7 @@ const chartOptions = ref({
       },
     },
   },
-})
+}
 </script>
 <template>
   <v-card max-width="700" :loading="pending">

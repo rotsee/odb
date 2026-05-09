@@ -4,11 +4,11 @@
       Lagändringar i OSL de senaste åren
     </v-card-title>
     <v-card-text>
-      <v-expansion-panels>
+      <v-expansion-panels class="my-4">
         <v-expansion-panel>
           <v-expansion-panel-title expand-icon="mdi-menu-down">
             <v-icon class="mr-2" icon="mdi-filter" color="grey" />
-            Filter
+            Filter och sök
           </v-expansion-panel-title>
           <v-expansion-panel-text>
             <v-form>
@@ -40,9 +40,8 @@
                     />
                   </v-col>
                 </v-row>
-                <v-row>
+                <v-row align="end">
                   <v-col>
-                    <label class="v-label">Antal år som sekretessen gäller</label>
                     <v-range-slider
                       v-model="filter.sekretess_range"
                       thumb-label="always"
@@ -53,6 +52,28 @@
                       color="grey"
                       strict
                     />
+                    <label class="v-label mt-n3 d-block">Antal år som sekretessen gäller</label>
+                  </v-col>
+                  <v-col>
+                    <v-text-field
+                      v-model="filter.search"
+                      label="Fritext"
+                      clearable
+                      :loading="searchLoading"
+                      prepend-inner-icon="mdi-magnify"
+                    />
+                  </v-col>
+                </v-row>
+                <v-row justify="end">
+                  <v-col cols="auto">
+                    <v-btn
+                      variant="text"
+                      prepend-icon="mdi-filter-remove"
+                      :disabled="isDefaultFilter"
+                      @click="resetFilter"
+                    >
+                      Rensa filter
+                    </v-btn>
                   </v-col>
                 </v-row>
               </v-container>
@@ -129,9 +150,11 @@
           <span v-if="item.validity">
             Sekretess i {{ item.validity }} år &middot;
           </span>
-          <span>
-            {{ item.pages }} {{ item.pages === 1 ? "sida" : "sidor" }} ändringsförfattning
-          </span>
+          <!--
+            <span>
+              {{ item.pages }} {{ item.pages === 1 ? "sida" : "sidor" }} ändringsförfattning
+            </span>
+          -->
         </template>
 
         <template #footer.prepend>
@@ -148,13 +171,59 @@
   </v-card>
 </template>
 <script setup>
+  import MiniSearch from "minisearch"
+
   const { pending, data: tableDataRaw } = await useFetch("/api/table")
   const filter = ref({
     eu: false,
     sekretess: ["ökad", "minskad", ""],
     sekretess_range: [0, 70],
     tags: [],
+    search: "",
   })
+
+  const searchIndex = ref(null)
+  const searchMatches = ref(null)
+  const searchLoading = ref(false)
+
+  async function ensureIndex() {
+    if (searchIndex.value) return
+    searchLoading.value = true
+    const texts = await $fetch("/data/text.json")
+    const ms = new MiniSearch({ fields: ["text"], storeFields: [] })
+    ms.addAll(Object.entries(texts).map(([sfs, text]) => ({ id: sfs, text })))
+    searchIndex.value = ms
+    searchLoading.value = false
+  }
+
+  const isDefaultFilter = computed(() => {
+    const f = filter.value
+    return !f.eu
+      && f.sekretess.length === 3 && f.sekretess.includes("ökad") && f.sekretess.includes("minskad") && f.sekretess.includes("")
+      && f.sekretess_range[0] === 0 && f.sekretess_range[1] === 70
+      && f.tags.length === 0
+      && !f.search
+  })
+
+  function resetFilter() {
+    filter.value = {
+      eu: false,
+      sekretess: ["ökad", "minskad", ""],
+      sekretess_range: [0, 70],
+      tags: [],
+      search: "",
+    }
+    searchMatches.value = null
+  }
+
+  watch(() => filter.value.search, async (q) => {
+    if (!q) { searchMatches.value = null; return }
+    await ensureIndex()
+    searchMatches.value = new Set(
+      searchIndex.value.search(q, { prefix: true, fuzzy: 0.2 }).map(r => r.id),
+    )
+  })
+
   const tableData = computed(() => {
     if (pending.value) {
       return null
@@ -177,6 +246,7 @@
         }
         return filter.value.tags.every(t => row.tags.includes(t))
       })
+      .filter(row => !searchMatches.value || searchMatches.value.has(row.sfs))
   })
   const chapters = {
     1: "Lagens innehåll",
@@ -271,9 +341,9 @@
     if (!tableDataRaw.value) {
       return null
     }
-    const tags = new Set()
+    const counts = new Map()
     tableDataRaw.value.forEach(row => {
-      row.tags.forEach(tags.add, tags)
+      row.tags.forEach(t => counts.set(t, (counts.get(t) ?? 0) + 1))
     })
     const _blacklist = [
       "eu",
@@ -285,7 +355,10 @@
       "öppenhet",
       "öppenhetsdatabasen",
     ]
-    return Array.from(tags).filter(x => !_blacklist.includes(x)).sort(new Intl.Collator("sv-SE").compare)
+    return Array.from(counts.entries())
+      .filter(([tag, count]) => count > 1 && !_blacklist.includes(tag))
+      .map(([tag]) => tag)
+      .sort(new Intl.Collator("sv-SE").compare)
   })
   /*
   const itemRowBackground = item => {

@@ -1,7 +1,7 @@
 import { sv } from "vuetify/locale"
 
 export default defineNuxtConfig({
-  modules: ["vuetify-nuxt-module"],
+  modules: ["vuetify-nuxt-module", "@nuxt/eslint"],
 
   css: [
     "@mdi/font/css/materialdesignicons.css",
@@ -31,9 +31,6 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
-    // Allt som ska plockas med dot-env behöver deklareras här
-    // googleApiKey: "",
-    // googleSheetsId: "",
     NODE_ENV: "",
   },
 

@@ -22,6 +22,8 @@
                       label="Sekretess"
                       :single-line="false"
                       :items="['ökad', 'minskad', {title: 'ingen förändring', value: ''}]"
+                      :base-color="filter.sekretess.length < 3 ? '#ed8123' : undefined"
+                      :color="filter.sekretess.length < 3 ? '#ed8123' : undefined"
                     />
                   </v-col>
                   <v-col cols="auto" lg="4">
@@ -31,12 +33,15 @@
                       chips
                       label="Taggar"
                       :items="availableTags"
+                      :base-color="filter.tags.length ? '#ed8123' : undefined"
+                      :color="filter.tags.length ? '#ed8123' : undefined"
                     />
                   </v-col>
                   <v-col cols="auto">
                     <v-checkbox
                       v-model="filter.eu"
                       label="Endast EU-relaterade ändringar"
+                      :color="filter.eu ? '#ed8123' : undefined"
                     />
                   </v-col>
                 </v-row>
@@ -49,7 +54,7 @@
                       show-ticks="always"
                       :min="0"
                       :max="70"
-                      color="grey"
+                      :color="filter.sekretess_range[0] !== 0 || filter.sekretess_range[1] !== 70 ? '#ed8123' : 'grey'"
                       strict
                     />
                     <label class="v-label mt-n3 d-block">Antal år som sekretessen gäller</label>
@@ -61,6 +66,8 @@
                       clearable
                       :loading="searchLoading"
                       prepend-inner-icon="mdi-magnify"
+                      :base-color="filter.search ? '#ed8123' : undefined"
+                      :color="filter.search ? '#ed8123' : undefined"
                     />
                   </v-col>
                 </v-row>
@@ -72,7 +79,7 @@
                       :disabled="isDefaultFilter"
                       @click="resetFilter"
                     >
-                      Rensa filter
+                      Rensa alla filter
                     </v-btn>
                   </v-col>
                 </v-row>

@@ -41,7 +41,7 @@ export default defineNuxtConfig({
       },
       title: "Öppenhetsdatabasen | Journalistförbundet",
       meta: [
-        { name: "description", content: "Jounalistförbundets öppenhetsdatabas." },
+        { name: "description", content: "Journalistförbundets öppenhetsdatabas." },
       ],
       script: [
         { src: "https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.9/iframeResizer.contentWindow.min.js" },

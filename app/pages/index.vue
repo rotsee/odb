@@ -15,7 +15,7 @@
       </v-col>
       <v-col cols="auto" lg="6">
         <p>
-          För att få en bild av hela lagändringspusslet, har vi byggt en databas över lagändringar i OSL, med start 2018. 
+          För att få en bild av hela lagändringspusslet har vi byggt en databas över lagändringar i OSL, med start 2018. 
           Databasen innehåller alla substantiella ändringar av lagtexter, men inte vissa rubrikändringar, korrektur och liknande.
         </p>
       </v-col>

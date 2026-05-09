@@ -4,7 +4,6 @@ import raw from "../assets/data/data.json" with { type: "json" }
 export default defineEventHandler(() => {
 
   const data = raw
-    // .reverse()
     .sort((a, b) => {
       // Sortera enligt SFS-logik, på först år sedan löpnummer
       const [aYear, aNr] = a.sfs.split(":")

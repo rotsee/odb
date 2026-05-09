@@ -1,4 +1,4 @@
-import raw from "../../app/assets/data/data.json" with { type: "json" }
+import raw from "../assets/data/data.json" with { type: "json" }
 
 
 export default defineEventHandler(() => {

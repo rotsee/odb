@@ -1,6 +1,5 @@
-import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
+import { transformAssetUrls } from 'vite-plugin-vuetify'
 
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   css: [
     "@/assets/css/typography.css",

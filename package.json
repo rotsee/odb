@@ -17,7 +17,7 @@
   "devDependencies": {
     "@nuxt/eslint": "^1.15.2",
     "@volar-plugins/vetur": "^2.0.0",
-    "eslint": "^10.3.0",
+    "eslint": "^10.4.0",
     "eslint-config-prettier": "^10.1.8",
     "prettier": "^3.8.3"
   },
@@ -25,7 +25,7 @@
     "@mdi/font": "7.4.47",
     "chart.js": "4.5.1",
     "minisearch": "^7.2.0",
-    "nuxt": "4.4.4",
+    "nuxt": "4.4.6",
     "sass": "1.99.0",
     "vue-chartjs": "5.3.3",
     "vuetify": "4.0.7",

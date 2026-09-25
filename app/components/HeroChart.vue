@@ -50,7 +50,7 @@ const chartOptions = {
 </script>
 <template>
   <v-card max-width="700" :loading="pending">
-    <v-card-title class="text-wrap">
+    <v-card-title class="text-wrap mt-3">
       Så har de senaste årens lagändringar förändrat öppenheten i samhället
     </v-card-title>
     <v-card-text>
